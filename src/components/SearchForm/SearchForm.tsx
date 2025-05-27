@@ -5,17 +5,10 @@ interface SearchFormProps {
 export default function SearchForm({ onSubmit }: SearchFormProps) {
   const handleSubmit = (formData: FormData) => {
     const topic = formData.get('topic') as string;
-    // Якщо текстове поле порожнє, виводимо повідомлення
-    // і припиняємо виконання функції.
-
     if (topic === '') {
-      alert('please enter search topic');
+      alert('Please enter search topic!');
       return;
     }
-
-    // У протилежному випадку викликаємо пропс
-    // і передаємо йому значення поля
-
     onSubmit(topic);
   };
 
@@ -26,7 +19,3 @@ export default function SearchForm({ onSubmit }: SearchFormProps) {
     </form>
   );
 }
-
-//Обробка запиту
-
-// Запити виконуються не в компоненті форми, а в App, куди вона передає значення. Це дозволяє розділити відповідальність: форма – за інтерфейс, App – за логіку.
